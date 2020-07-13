@@ -428,7 +428,7 @@ echo
 #
 cp $backupMainDir/config.php "${nextcloudFileDir}/config/"
 #rm $backupMainDir/config.php
-echo "replace with original config.php"
+echo "replace with backup config.php"
 echo "done"
 echo
 
@@ -456,9 +456,9 @@ echo
 #
 # Reset nextcloud admin password
 #
-echo "reset admin password"
-su -m www -c 'php /usr/local/www/nextcloud/occ user:resetpassword admin'
-echo "su -m www -c 'php /usr/local/www/nextcloud/occ user:resetpassword admin'"
+echo "No reset of admin password"
+#su -m www -c 'php /usr/local/www/nextcloud/occ user:resetpassword admin'
+#echo "su -m www -c 'php /usr/local/www/nextcloud/occ user:resetpassword admin'"
 echo
 
 echo
