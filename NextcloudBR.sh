@@ -428,7 +428,7 @@ echo
 #
 cp $backupMainDir/config.php "${nextcloudFileDir}/config/"
 #rm $backupMainDir/config.php
-echo "replace with backup config.php"
+echo "restore config.php"
 echo "done"
 echo
 
