@@ -143,14 +143,23 @@ then
 	exit 1
 fi
 
-if [ "$cron" != "yes" ]; then
- read -p "Enter '(B)ackup' to backup Nextcloud or '(R)estore' to restore Nextcloud: " choice
+# Ask to Backup or restore, if run interactively
+if ! [ -t 1 ] ; then
+  # Not run interactively
+  choice="B"
+  
+else
+  read -p "Enter '(B)ackup' to backup Nextcloud or '(R)estore' to restore Nextcloud: " choice
+  while [ "$choice" != "B" ] && [ "$choice" != "b" ] && [ "$choice" != "R" ] && [ "$choice" != "r" ];
+   do
+     if [ "$choice" != "B" ] && [ "$choice" != "b" ] && [ "$choice" != "R" ] && [ "$choice" != "r" ]; then
+       #clear
+       echo "You need to enter 'B' or 'R'"
+     fi
+   read -p "Enter '(B)ackup' to backup Nextcloud or '(R)estore' to restore Nextcloud: " choice
+  done
 fi
-echo
 
-if [ "$cron" == "yes" ]; then
-    choice="B"
-fi
 echo
 if [ "$choice" = "B" ] || [ "$choice" = "b" ]; then
 
@@ -464,9 +473,6 @@ echo
 echo
 echo "DONE!"
 echo "Backup ${restore} successfully restored."
-exit 1
-else
-  echo "Must enter '(B)ackup' to backup Nextcloud or '(R)estore' to restore Nextcloud: "
 fi
 
 

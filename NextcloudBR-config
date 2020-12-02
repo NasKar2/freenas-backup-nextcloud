@@ -1,5 +1,4 @@
 # Variables
-cron=""
 backupMainDir="/mnt/NextcloudBackups" #The directory where you store the Nextcloud backups
 final="NC_"$(echo "$(sudo -u www php /usr/local/www/nextcloud/occ --version)" | sed 's/Nextcloud //')$(date +'_%F_%H%M')
 backupdir="${backupMainDir}/${final}/" # The actual directory of the current backup - this is is subdirectory of the main directory above with a timestamp
