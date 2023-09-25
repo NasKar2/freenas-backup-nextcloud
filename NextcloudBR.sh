@@ -281,6 +281,8 @@ fi
 echo
 echo "DONE!"
 echo "Backup created: ${backupdir}"
+chmod -R 770 ${backupMainDir}
+echo "Changed permission of backups to 770"
 exit 1
 
 elif [ "$choice" = "R" ] || [ "$choice" = "r" ]; then
